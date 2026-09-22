@@ -2,7 +2,7 @@
 
 **Series note:** This is **Paper 2 of 4** in the GWAS × brain cell-type series. **It builds directly on Paper 1** (`gwas-brain-celltype-heritability`): the harmonized GWAS summary statistics, human cell-type gene programs, and enrichment pipeline are inputs here. Papers 3 and 4 reuse this paper's concordance framework.
 
-![Concept figure: human and mouse cell-type gene programs are aligned through ortholog mapping and a SAMap homology graph, then the identical heritability-enrichment test is run on both sides to separate concordant cell types from human-specific signals.](figures/concept_figure.png)
+**Concept figure:** see [figures/concept_figure.md](figures/concept_figure.md) for the canonical Mermaid concept diagram.
 
 *Concept figure: the same enrichment engine from Paper 1 is applied to human cell-type programs and to ortholog-projected mouse programs, and per-species results are compared through a homology-confidence matrix. (Mermaid-renderable version: [figures/concept_figure.md](figures/concept_figure.md).)*
 
