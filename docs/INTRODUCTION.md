@@ -2,6 +2,10 @@
 
 **Series note:** This is **Paper 2 of 4** in the GWAS × brain cell-type series. **It builds directly on Paper 1** (`gwas-brain-celltype-heritability`): the harmonized GWAS summary statistics, human cell-type gene programs, and enrichment pipeline are inputs here. Papers 3 and 4 reuse this paper's concordance framework.
 
+![Concept figure: human and mouse cell-type gene programs are aligned through ortholog mapping and a SAMap homology graph, then the identical heritability-enrichment test is run on both sides to separate concordant cell types from human-specific signals.](figures/concept_figure.png)
+
+*Concept figure: the same enrichment engine from Paper 1 is applied to human cell-type programs and to ortholog-projected mouse programs, and per-species results are compared through a homology-confidence matrix. (Mermaid-renderable version: [figures/concept_figure.md](figures/concept_figure.md).)*
+
 ## Background
 
 Most preclinical neuroscience runs on model organisms — above all the mouse. Yet the translational record of neurodegenerative and neuropsychiatric drug development is poor, and a plausible contributor is cellular mismatch: the cell types that carry human genetic risk may not correspond one-to-one to the cell types manipulated in animal models. Human genetics now tells us *where* risk concentrates in the human brain. Partitioned heritability with S-LDSC [1], gene-level enrichment with MAGMA [2], and enhancer-linked disease programs with sc-linker [3] have each shown that common-variant risk for brain traits is not uniformly distributed but concentrated in specific cell populations [4,5]. Paper 1 of this series maps that concentration across the Allen Brain Cell (ABC) Atlas human whole-brain taxonomy — ~3 million nuclei and more than 3,000 cell types spanning the telencephalon to the spinal cord [6].
