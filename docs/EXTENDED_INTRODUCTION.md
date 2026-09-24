@@ -40,7 +40,7 @@ Each extra G copy comes with a higher score (group averages: 51, 56, 62). That s
 | G | 4.9 | no |
 | H | 4.4 | no |
 
-The markers sit on top (average 8.6 vs. 5.1). **Heritability enrichment** is exactly this — "this cell type's signature genes carry a disproportionate share of disease signal" — scaled by how surprising it is, giving one z-score per cell type [1,2,14]. Run for all >3,000 human cell types, this produced Paper 1's atlas. And a guardrail: with thousands of cell types tested, some would look impressive by luck (flip 436 coins and one will land heads 8 times running); the **FDR q-value** estimates what fraction of any "hits" list is expected to be such luck, and "FDR < 0.05" caps it at about 5%.
+The markers sit on top (average 8.6 vs. 5.3). **Heritability enrichment** is exactly this — "this cell type's signature genes carry a disproportionate share of disease signal" — scaled by how surprising it is, giving one z-score per cell type [1,2,14]. Run for all >3,000 human cell types, this produced Paper 1's atlas. And a guardrail: with thousands of cell types tested, some would look impressive by luck (flip 436 coins and one will land heads 8 times running); the **FDR q-value** estimates what fraction of any "hits" list is expected to be such luck, and "FDR < 0.05" caps it at about 5%.
 
 ## Cell types, and comparing them across species
 
