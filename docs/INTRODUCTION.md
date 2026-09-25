@@ -2,9 +2,9 @@
 
 **Series note:** This is **Paper 2 of 4** in the GWAS × brain cell-type series. **It builds directly on Paper 1** (`gwas-brain-celltype-heritability`): the harmonized GWAS summary statistics, human cell-type gene programs, and enrichment pipeline are inputs here. Papers 3 and 4 reuse this paper's concordance framework.
 
-**Concept figure:** see [figures/concept_figure.md](figures/concept_figure.md) for the canonical Mermaid concept diagram.
+![Concept figure: cell-type heritability signals are compared between mouse and human brain cell types through ortholog gene mapping to test conservation](figures/01-concept-schematic.png)
 
-*Concept figure: the same enrichment engine from Paper 1 is applied to human cell-type programs and to ortholog-projected mouse programs, and per-species results are compared through a homology-confidence matrix. (Mermaid-renderable version: [figures/concept_figure.md](figures/concept_figure.md).)*
+*Figure 1: Cell-type heritability signals are compared between mouse and human brain cell types through ortholog gene mapping to test conservation. (Editable Mermaid source: [figures/concept_figure.md](figures/concept_figure.md).)*
 
 ## Background
 

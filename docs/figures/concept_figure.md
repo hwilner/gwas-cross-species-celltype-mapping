@@ -1,8 +1,6 @@
 # Concept Figure — Paper 2: Cross-Species Conservation of Brain Cell-Type Heritability
 
-> **Note:** A raster concept figure (`concept_figure.png`, 1536×1024, FigForge/NeurIPS flat-design style) was generated for this repository. Because the available GitHub tooling can only commit text content (verified: binary payloads are stored corrupted), the faithful figure is provided here as a Mermaid diagram that renders directly on GitHub. If `concept_figure.png` is later uploaded to this directory, it can be embedded as:
->
-> `![Concept figure: human and mouse cell-type gene programs are aligned through ortholog mapping and a homology graph, then the identical heritability-enrichment test is run on both sides to flag concordant versus human-specific disease cell types.](figures/concept_figure.png)`
+> **Note.** The rendered concept figure is [`01-concept-schematic.png`](01-concept-schematic.png) in this folder — a generated scientific illustration. This file keeps the Mermaid source of the same diagram so it remains editable and re-renderable.
 
 **Caption:** Concept figure — the Paper 2 design: human GWAS summary statistics meet human and mouse cell-type gene programs (aligned via orthologs and SAMap homology); the identical enrichment engine runs on both species' programs, and concordance analysis separates conserved cell types (valid mouse models) from human-specific signals (translation risk).
 

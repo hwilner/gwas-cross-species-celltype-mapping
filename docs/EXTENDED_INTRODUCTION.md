@@ -4,9 +4,13 @@
 
 **Builds on:** Paper 1 (`gwas-brain-celltype-heritability`), which supplies the harmonized GWAS summary statistics, human cell-type gene programs, and the enrichment pipeline. **Consumed by:** Papers 3 and 4 (`brain-celltype-eqtl-coloc-prioritization`, `psych-gwas-celltype-extension`), which reuse this paper's concordance framework. **Paper 1 already has real results:** FinnGen R11 Alzheimer's disease (AD) heritability concentrated in oligodendrocyte precursor cells (OPC, z = 5.73), vascular cells (z = 5.51), and microglia (z = 3.84), and Parkinson's disease (PD) heritability enriched in 11 cell clusters at FDR < 0.05 (top: CA4_197, p = 5.3e-13), all using ABC Atlas marker programs. Paper 2 asks: do those same signals exist in the *mouse* versions of those cell types?
 
-![Concept figure: human and mouse cell-type gene programs are aligned through ortholog mapping and a homology graph, then the identical enrichment test runs on both sides to flag concordant versus human-specific disease cell types.](figures/concept_figure.png)
+![Concept figure: human and mouse cell-type gene programs are aligned through ortholog mapping and a homology graph, then the identical enrichment test runs on both sides to flag concordant versus human-specific disease cell types.](figures/01-concept-schematic.png)
 
 *Concept figure: the Paper 2 design in one picture. (Mermaid-renderable version: [figures/concept_figure.md](figures/concept_figure.md).)*
+
+![Data collection and measurement workflow: mouse and human brain single-cell atlases are mapped through one-to-one orthologs to build comparable cell-type gene programs](figures/02-data-collection.png)
+
+*Data workflow: Mouse and human brain single-cell atlases are mapped through one-to-one orthologs to build comparable cell-type gene programs.*
 
 ## The sixty-second version
 
