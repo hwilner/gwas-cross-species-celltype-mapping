@@ -1,4 +1,4 @@
-# GWAS Cross-Species Cell-Type Mapping (Paper 2)
+# GWAS Cross-Species Cell-Type Mapping
 
 This independent research repository plans and tracks a cross-species (mouse↔human) heritability mapping analysis. It provides data-free alignment utilities for transparent review and extension.
 
@@ -8,11 +8,11 @@ Which disease-associated cell types are conserved between mouse and human, and w
 
 ## Extended introduction
 
-Background, related work, and the series context in depth: [docs/EXTENDED_INTRODUCTION.md](docs/EXTENDED_INTRODUCTION.md). This is **Paper 2** of the GWAS × brain cell-type series (4 papers). **It builds on Paper 1** (`gwas-brain-celltype-heritability`), reusing its harmonized GWAS inputs and human cell-type gene programs; the dependence is stated explicitly wherever results rely on Paper 1 outputs.
+Background and related work in depth: [docs/EXTENDED_INTRODUCTION.md](docs/EXTENDED_INTRODUCTION.md). This repository **builds on the companion repository** `gwas-brain-celltype-heritability`, reusing its harmonized GWAS inputs and human cell-type gene programs; the dependence is stated explicitly wherever results rely on its outputs.
 
 ## Materials and methods
 
-Mouse cell-type gene programs (ABC Atlas mouse, ~4M cells, 1,201 supertypes) are built with the frozen marker-selection rules of Paper 1 (no re-tuning); mouse–human orthology uses a versioned HCOP/Ensembl table. Programs are aligned with the homology-confidence-weighted statistic implemented in `src/alignment.py` (SAMap-style refinement; documented `high`/`medium`/`low` confidence tiers), and concordance is tested against a pre-registered null model. All code is data-free and validated on synthetic cases before any real run. Full protocol: [docs/METHODS.md](docs/METHODS.md); run plans and pre-registrations are tracked as issues (#6, #14).
+Mouse cell-type gene programs (ABC Atlas mouse, ~4M cells, 1,201 supertypes) are built with the frozen marker-selection rules of `gwas-brain-celltype-heritability` (no re-tuning); mouse–human orthology uses a versioned HCOP/Ensembl table. Programs are aligned with the homology-confidence-weighted statistic implemented in `src/alignment.py` (SAMap-style refinement; documented `high`/`medium`/`low` confidence tiers), and concordance is tested against a pre-registered null model. All code is data-free and validated on synthetic cases before any real run. Full protocol: [docs/METHODS.md](docs/METHODS.md); run plans and pre-registrations are tracked as issues (#6, #14).
 
 ## Results
 

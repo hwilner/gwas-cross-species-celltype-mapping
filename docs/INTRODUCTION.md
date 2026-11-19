@@ -1,6 +1,6 @@
-# Introduction — Paper 2: Cross-Species Conservation of Brain Cell-Type Heritability
+# Introduction — Cross-Species Conservation of Brain Cell-Type Heritability
 
-**Series note:** This is **Paper 2 of 4** in the GWAS × brain cell-type series. **It builds directly on Paper 1** (`gwas-brain-celltype-heritability`): the harmonized GWAS summary statistics, human cell-type gene programs, and enrichment pipeline are inputs here. Papers 3 and 4 reuse this paper's concordance framework.
+This repository **builds directly on the companion repository** `gwas-brain-celltype-heritability`: its harmonized GWAS summary statistics, human cell-type gene programs, and enrichment pipeline are inputs here.
 
 ![Concept figure: cell-type heritability signals are compared between mouse and human brain cell types through ortholog gene mapping to test conservation](figures/01-concept-schematic.png)
 
@@ -8,13 +8,13 @@
 
 ## Background
 
-Most preclinical neuroscience runs on model organisms — above all the mouse. Yet the translational record of neurodegenerative and neuropsychiatric drug development is poor, and a plausible contributor is cellular mismatch: the cell types that carry human genetic risk may not correspond one-to-one to the cell types manipulated in animal models. Human genetics now tells us *where* risk concentrates in the human brain. Partitioned heritability with S-LDSC [1], gene-level enrichment with MAGMA [2], and enhancer-linked disease programs with sc-linker [3] have each shown that common-variant risk for brain traits is not uniformly distributed but concentrated in specific cell populations [4,5]. Paper 1 of this series maps that concentration across the Allen Brain Cell (ABC) Atlas human whole-brain taxonomy — ~3 million nuclei and more than 3,000 cell types spanning the telencephalon to the spinal cord [6].
+Most preclinical neuroscience runs on model organisms — above all the mouse. Yet the translational record of neurodegenerative and neuropsychiatric drug development is poor, and a plausible contributor is cellular mismatch: the cell types that carry human genetic risk may not correspond one-to-one to the cell types manipulated in animal models. Human genetics now tells us *where* risk concentrates in the human brain. Partitioned heritability with S-LDSC [1], gene-level enrichment with MAGMA [2], and enhancer-linked disease programs with sc-linker [3] have each shown that common-variant risk for brain traits is not uniformly distributed but concentrated in specific cell populations [4,5]. The companion repository `gwas-brain-celltype-heritability` maps that concentration across the Allen Brain Cell (ABC) Atlas human whole-brain taxonomy — ~3 million nuclei and more than 3,000 cell types spanning the telencephalon to the spinal cord [6].
 
 The missing step is cross-species. Whether the human heritability signal is *conserved* in the homologous mouse (and non-human primate) cell types is almost entirely untested at modern atlas resolution. The question matters in both directions. Where signal is conserved, mouse models of those cell types are validated as genetically faithful systems for mechanistic and therapeutic work. Where signal is human-specific — as might be expected for traits involving human-expanded cortical populations or human-specific regulatory evolution — mouse experiments on the nominally "same" cell type may be systematically misleading.
 
 Two developments make a rigorous test feasible now. First, paired whole-brain atlases exist in matched taxonomic frameworks: the ABC Atlas mouse whole-brain dataset (~4 million cells, 1,201 supertypes) [7] and the human counterpart [6], with additional comparative resources for primate cortex, including human/marmoset/mouse motor cortex comparisons [8]. Second, cross-species integration methods have matured: orthology mapping via Ensembl/HCOP, and alignment of cell types across species through meta-analysis and self-assembling manifold approaches such as SAMap, which maps single-cell atlases onto each other using gene-graph homology [9]. Cell types in these atlases are defined transcriptionally, so a mouse-human homology graph derived from ortholog expression can be built *before* any genetics, and genetic enrichment can then be scored on both sides of each homology edge.
 
-The statistical machinery transfers directly. For each human GWAS, Paper 1 supplies harmonized summary statistics and an S-LDSC/MAGMA/sc-linker pipeline driven by cell-type-specific gene sets [1,2,3]. Because GWAS variants are human variants, "mouse enrichment" cannot be computed from mouse sequence; instead, conservation is tested at the *gene program* level: are the human orthologs of mouse-cell-type-specific genes enriched for human trait heritability? And conversely, do human-cell-type programs score against mouse-cell-type specificity? This ortholog-projected design has precedent in prior cross-species enrichment work [4,5], but it has never been applied systematically across a whole-brain, multi-thousand-type hierarchy in two species with matched taxonomies.
+The statistical machinery transfers directly. For each human GWAS, the companion repository supplies harmonized summary statistics and an S-LDSC/MAGMA/sc-linker pipeline driven by cell-type-specific gene sets [1,2,3]. Because GWAS variants are human variants, "mouse enrichment" cannot be computed from mouse sequence; instead, conservation is tested at the *gene program* level: are the human orthologs of mouse-cell-type-specific genes enriched for human trait heritability? And conversely, do human-cell-type programs score against mouse-cell-type specificity? This ortholog-projected design has precedent in prior cross-species enrichment work [4,5], but it has never been applied systematically across a whole-brain, multi-thousand-type hierarchy in two species with matched taxonomies.
 
 ## Prior work and gap
 
@@ -33,22 +33,22 @@ The gap: no study has quantified, cell type by cell type across a whole-brain hi
 
 | Resource | Content | Scale | Access |
 |---|---|---|---|
-| Paper 1 outputs | Harmonized GWAS, human programs, enrichment pipeline | This series | Internal |
+| Companion repository outputs (`gwas-brain-celltype-heritability`) | Harmonized GWAS, human programs, enrichment pipeline | Companion repository | Internal |
 | ABC Atlas human whole brain [6] | snRNA-seq taxonomy | ~3M nuclei, >3,000 types | Open |
 | ABC Atlas mouse whole brain [7] | snRNA-seq/spatial taxonomy | ~4M cells, 1,201 supertypes | Open |
 | Human/marmoset/mouse motor cortex [8] | Comparative snRNA-seq/snATAC-seq | 3 species | Open |
 | Orthology resources | Ensembl Compara / HCOP one-to-one orthologs | Genome-wide | Open |
-| Human GWAS summary statistics (AD, PD, SCZ, MDD) | As in Paper 1 [10–13] | Large meta-analyses | Open (GWAS Catalog / PGC) |
+| Human GWAS summary statistics (AD, PD, SCZ, MDD) | As in the companion repository [10–13] | Large meta-analyses | Open (GWAS Catalog / PGC) |
 
 ## Methods
 
-One-to-one human-mouse(-marmoset) ortholog tables are built from Ensembl Compara and HCOP. For each mouse cell type at each taxonomy level, specificity scores are computed exactly as in Paper 1 and converted to human-gene programs via orthologs. The identical S-LDSC [1] (specifically-expressed-gene mode [14]), MAGMA gene-set [2], and sc-linker-style [3] tests are run against the same GWAS inputs. In parallel, SAMap-style graph alignment [9] produces a homology-confidence matrix between human and mouse cell types. Concordance is quantified per trait as (i) rank correlation of enrichment z-scores across homologous pairs, weighted by homology confidence, and (ii) replication rate of significant human enrichments in mouse ortholog programs (FDR-controlled). Human-specific signals are flagged where a strong human enrichment has no significant mouse-homolog counterpart despite adequate statistical power. Analyses are run across taxonomy levels to localize the divergence point.
+One-to-one human-mouse(-marmoset) ortholog tables are built from Ensembl Compara and HCOP. For each mouse cell type at each taxonomy level, specificity scores are computed exactly as in the companion repository and converted to human-gene programs via orthologs. The identical S-LDSC [1] (specifically-expressed-gene mode [14]), MAGMA gene-set [2], and sc-linker-style [3] tests are run against the same GWAS inputs. In parallel, SAMap-style graph alignment [9] produces a homology-confidence matrix between human and mouse cell types. Concordance is quantified per trait as (i) rank correlation of enrichment z-scores across homologous pairs, weighted by homology confidence, and (ii) replication rate of significant human enrichments in mouse ortholog programs (FDR-controlled). Human-specific signals are flagged where a strong human enrichment has no significant mouse-homolog counterpart despite adequate statistical power. Analyses are run across taxonomy levels to localize the divergence point.
 
 ## Expected contributions
 
 1. The first whole-hierarchy human-mouse (and marmoset-informed) concordance map of disease heritability across brain cell types.
 2. A principled list of mouse cell types that are genetically valid vs. potentially misleading models of human risk for AD/PD and psychiatric traits.
-3. A reusable concordance framework and ortholog-projected enrichment pipeline consumed by Papers 3 and 4.
+3. A reusable concordance framework and ortholog-projected enrichment pipeline intended for reuse in later work.
 4. Quantification of where in the taxonomy cross-species signal degrades, informing translational study design.
 
 ## Scope and boundary
